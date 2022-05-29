@@ -1,0 +1,23 @@
+{
+"ip_address":"10.0.0.1", 
+"set_time":"30",
+"connection_type":"None",
+"interval_between_commands":"5",
+"max_bandwith":"100M",
+"port_number":"None",
+"format":"M",
+"interval":"1",
+"number_of_packets_to_send":"None",
+"_comments":{
+"_ip_address":"IP of the server", 
+"_set_time":"time [s] to run the test",
+"_connection_type":"u for UDP, None for TCP",
+"_interval_between_commands":"time [s] before the command is launched again",
+"_max_bandwith":"target bandwith to n bits/sec",
+"_port_number":"server port to connect",
+"_format":"format to print bandwith numbers in: k for Kbits/sec, K for KBytes/sec, m for Mbits/sec, M for MBytes/sec",
+"_interval":"interval [s] between period output",
+"_number_of_packets_to_send":"number of packets to transmit",
+"_link_to_documentation":"https://iperf.fr/iperf-doc.php"
+}
+}
