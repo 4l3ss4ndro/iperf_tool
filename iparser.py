@@ -100,7 +100,7 @@ def iparser_client(output, format_unit, path, connection):
 		
         plt.xlabel('Time [s]')
         plt.ylabel('N.')
-        plt.title('iPerf measurements from server side - TCP')
+        plt.title('iPerf measurements from client side - TCP')
         plt.legend()
         plt.show()
     
