@@ -29,8 +29,8 @@ def iparser_client(output, format_unit, path, connection):
         df.to_csv(path+"/iperf_client_data.csv", index=False)
         
         #mean
-        tr_data_mean = statistics.mean(transferred_data)
-        bw_mean = statistics.mean(bw)
+        tr_data_mean = str(statistics.mean(transferred_data))+" "+unit_transfer
+        bw_mean = str(statistics.mean(bw))+" "+unit_bw
         #variance
         tr_data_variance = statistics.variance(transferred_data)
         bw_variance = statistics.variance(bw)
@@ -76,7 +76,7 @@ def iparser_client(output, format_unit, path, connection):
                     unit_bw=lines[row][7]
                     cwnd.append(float(lines[row][9]))
                     unit_cwnd=lines[row][10]
-                    retr.append(lines[row][8])
+                    retr.append(int(lines[row][8]))
     		
         bw_mean=np.mean(bw[:])
         total_transfer=np.sum(transferred_data[:])
@@ -86,10 +86,10 @@ def iparser_client(output, format_unit, path, connection):
         df.to_csv(path+"/iperf_server_data.csv", index=False)
         
         #mean
-        tr_data_mean = statistics.mean(transferred_data)
-        bw_mean = statistics.mean(bw)
-        retr_mean = statistics.mean(retr)
-        cwnd_mean = statistics.mean(cwnd)
+        tr_data_mean = str(statistics.mean(transferred_data))+" "+unit_transfer
+        bw_mean = str(statistics.mean(bw))+" "+unit_bw
+        retr_mean = str(statistics.mean(retr))
+        cwnd_mean = str(statistics.mean(cwnd))+" "+unit_cwnd
         #variance
         tr_data_variance = statistics.variance(transferred_data)
         bw_variance = statistics.variance(bw)
@@ -194,10 +194,10 @@ def iparser_server(format_unit, path, connection):
         df.to_csv(path+"/iperf_server_data.csv", index=False)
         
         #mean
-        tr_data_mean = statistics.mean(transferred_data)
-        bw_mean = statistics.mean(bw)
-        jitter_mean = statistics.mean(jitter)
-        packet_loss_mean = statistics.mean(packet_loss)
+        tr_data_mean = str(statistics.mean(transferred_data))+" "+unit_transfer
+        bw_mean = str(statistics.mean(bw))+" "+unit_bw
+        jitter_mean = str(statistics.mean(jitter))+" "+unit_jitter
+        packet_loss_mean = str(statistics.mean(packet_loss))+" %"
         #variance
         tr_data_variance = statistics.variance(transferred_data)
         bw_variance = statistics.variance(bw)
@@ -269,8 +269,8 @@ def iparser_server(format_unit, path, connection):
         df=pd.DataFrame(list(zip(transferred_data, bw)), columns = ['Transferred data', 'Bandwith'])
     	
         #mean
-        tr_data_mean = statistics.mean(transferred_data)
-        bw_mean = statistics.mean(bw)
+        tr_data_mean = str(statistics.mean(transferred_data))+" "+unit_transfer
+        bw_mean = str(statistics.mean(bw))+" "+unit_bw
         #variance
         tr_data_variance = statistics.variance(transferred_data)
         bw_variance = statistics.variance(bw)
@@ -302,5 +302,3 @@ def iparser_server(format_unit, path, connection):
         plt.title('iPerf measurements from server side - TCP')
         plt.legend()
         plt.show()
-    
-
